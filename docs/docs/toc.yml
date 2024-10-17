@@ -1,0 +1,15 @@
+﻿- href: ../index.md
+- href: getting-started.md
+
+- name: Reference
+- href: ../reference/configuration.md
+- href: ../reference/connectors.md
+- href: ../reference/kernel.md
+- href: ../reference/memory.md
+- href: ../reference/agents.md
+
+- name: Features
+- name: Agents
+  href: ../features/agents/toc.yml
+- href: ../features/data-persistence.md
+- href: ../features/plugins.md
