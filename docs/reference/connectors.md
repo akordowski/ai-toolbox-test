@@ -79,9 +79,9 @@ services
 
 AI Toolbox provides following NuGet packages for the Semantic Kernel connectors.
 
-- AIToolbox.SemanticKernel.Connectors.AzureOpenAI
-- AIToolbox.SemanticKernel.Connectors.Google
-- AIToolbox.SemanticKernel.Connectors.HuggingFace
-- AIToolbox.SemanticKernel.Connectors.MistralAI
-- AIToolbox.SemanticKernel.Connectors.Ollama
-- AIToolbox.SemanticKernel.Connectors.OpenAI
+- [AIToolbox.SemanticKernel.Connectors.AzureOpenAI](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.AzureOpenAI/)
+- [AIToolbox.SemanticKernel.Connectors.Google](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Google)
+- [AIToolbox.SemanticKernel.Connectors.HuggingFace](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.HuggingFace)
+- [AIToolbox.SemanticKernel.Connectors.MistralAI](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.MistralAI)
+- [AIToolbox.SemanticKernel.Connectors.Ollama](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Ollama)
+- [AIToolbox.SemanticKernel.Connectors.OpenAI](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.OpenAI)

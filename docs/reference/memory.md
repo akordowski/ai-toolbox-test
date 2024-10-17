@@ -46,18 +46,18 @@ services
 
 AI Toolbox provides following NuGet packages for the Semantic Kernel memory connectors.
 
-- AIToolbox.SemanticKernel.Connectors.Memory.AzureAISearch
-- AIToolbox.SemanticKernel.Connectors.Memory.AzureCosmosDBMongoDB
-- AIToolbox.SemanticKernel.Connectors.Memory.AzureCosmosDBNoSQL
-- AIToolbox.SemanticKernel.Connectors.Memory.Chroma
-- AIToolbox.SemanticKernel.Connectors.Memory.DuckDB
-- AIToolbox.SemanticKernel.Connectors.Memory.Kusto
-- AIToolbox.SemanticKernel.Connectors.Memory.Milvus
-- AIToolbox.SemanticKernel.Connectors.Memory.MongoDB
-- AIToolbox.SemanticKernel.Connectors.Memory.Pinecone
-- AIToolbox.SemanticKernel.Connectors.Memory.Postgres
-- AIToolbox.SemanticKernel.Connectors.Memory.Qdrant
-- AIToolbox.SemanticKernel.Connectors.Memory.Redis
-- AIToolbox.SemanticKernel.Connectors.Memory.Sqlite
-- AIToolbox.SemanticKernel.Connectors.Memory.SqlServer
-- AIToolbox.SemanticKernel.Connectors.Memory.Weaviate
+- [AIToolbox.SemanticKernel.Connectors.Memory.AzureAISearch](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.AzureAISearch)
+- [AIToolbox.SemanticKernel.Connectors.Memory.AzureCosmosDBMongoDB](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.AzureCosmosDBMongoDB)
+- [AIToolbox.SemanticKernel.Connectors.Memory.AzureCosmosDBNoSQL](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.AzureCosmosDBNoSQL)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Chroma](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Chroma)
+- [AIToolbox.SemanticKernel.Connectors.Memory.DuckDB](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.DuckDB)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Kusto](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Kusto)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Milvus](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Milvus)
+- [AIToolbox.SemanticKernel.Connectors.Memory.MongoDB](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.MongoDB)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Pinecone](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Pinecone)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Postgres](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Postgres)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Qdrant](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Qdrant)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Redis](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Redis)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Sqlite](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Sqlite)
+- [AIToolbox.SemanticKernel.Connectors.Memory.SqlServer](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.SqlServer)
+- [AIToolbox.SemanticKernel.Connectors.Memory.Weaviate](https://www.nuget.org/packages/AIToolbox.SemanticKernel.Connectors.Memory.Weaviate)
