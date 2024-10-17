@@ -4,7 +4,7 @@ AI Toolbox is a .NET SDK that provides an extensible toolset for .NET developers
 to build AI driven applications. It elevates the power of
 [Semantic Kernel](https://github.com/microsoft/semantic-kernel) by using a
 configuration driven approach, which allows adding AI capabilities to .NET
-applications in not time.
+applications in no time.
 
 **Features:**
 

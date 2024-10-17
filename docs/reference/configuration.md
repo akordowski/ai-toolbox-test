@@ -1,6 +1,6 @@
 # Configuration
 
-AI Toolbox uses a configuration driven approach, which allows adding AI capabilities to .NET applications in not time. The easiest way to set up an application is to use the functionality provided by the `AIToolbox.DependencyInjection` NuGet package.
+AI Toolbox uses a configuration driven approach, which allows adding AI capabilities to .NET applications in no time. The easiest way to set up an application is to use the functionality provided by the `AIToolbox.DependencyInjection` NuGet package.
 
 The `AddAIToolbox()` method is the starting point for the configuration of the application.
 
