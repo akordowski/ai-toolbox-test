@@ -1,4 +1,4 @@
-namespace AIToolbox.Options;
+namespace AIToolbox.Options.Agents;
 
 public sealed class AgentOptions
 {

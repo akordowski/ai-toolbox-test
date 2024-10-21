@@ -1,4 +1,4 @@
-using AIToolbox.Options.Agents.ChatCompletion;
+using AIToolbox.Options.Agents;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Memory;

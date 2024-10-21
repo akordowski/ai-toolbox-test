@@ -3,7 +3,7 @@ using AIToolbox.Agents.ChatCompletion.Resources;
 using AIToolbox.Agents.ChatCompletion.Services;
 using AIToolbox.Data;
 using AIToolbox.Options;
-using AIToolbox.Options.Agents.ChatCompletion;
+using AIToolbox.Options.Agents;
 using AIToolbox.Options.Data;
 using AIToolbox.Options.SemanticKernel;
 using AIToolbox.SemanticKernel;

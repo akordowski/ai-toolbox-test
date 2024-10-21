@@ -3,7 +3,7 @@ using AIToolbox.Agents.ChatCompletion.Models;
 using AIToolbox.Agents.ChatCompletion.Services;
 using AIToolbox.DependencyInjection;
 using AIToolbox.Options;
-using AIToolbox.Options.Agents.ChatCompletion;
+using AIToolbox.Options.Agents;
 using AIToolbox.Options.SemanticKernel;
 using AIToolbox.SemanticKernel.Memory;
 using Microsoft.Extensions.DependencyInjection;

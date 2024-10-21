@@ -1,6 +1,6 @@
 using AIToolbox.Options.Data;
 
-namespace AIToolbox.Options;
+namespace AIToolbox.Options.Agents;
 
 public sealed class ChatCompletionAgentDataStorageOptions
 {

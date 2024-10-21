@@ -1,6 +1,6 @@
 using AIToolbox.Agents.ChatCompletion.Models;
 using AIToolbox.Agents.ChatCompletion.Services;
-using AIToolbox.Options.Agents.ChatCompletion;
+using AIToolbox.Options.Agents;
 using AIToolbox.SemanticKernel;
 using AIToolbox.SemanticKernel.ChatCompletion;
 using AIToolbox.SemanticKernel.Memory;

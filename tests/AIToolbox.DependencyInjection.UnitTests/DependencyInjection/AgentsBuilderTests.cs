@@ -1,4 +1,4 @@
-using AIToolbox.Options;
+using AIToolbox.Options.Agents;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,4 +1,4 @@
-using AIToolbox.Options.Agents.ChatCompletion;
+using AIToolbox.Options.Agents;
 using AIToolbox.Options.SemanticKernel;
 
 namespace AIToolbox.Agents.ChatCompletion.Models;

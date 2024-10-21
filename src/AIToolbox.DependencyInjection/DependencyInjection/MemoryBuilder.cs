@@ -1,4 +1,4 @@
-using AIToolbox.Options;
+using AIToolbox.Options.Agents;
 using AIToolbox.Options.SemanticKernel;
 using AIToolbox.SemanticKernel.Memory;
 using Microsoft.Extensions.DependencyInjection;

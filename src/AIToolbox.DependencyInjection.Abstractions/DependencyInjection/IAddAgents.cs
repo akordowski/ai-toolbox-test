@@ -1,4 +1,4 @@
-using AIToolbox.Options;
+using AIToolbox.Options.Agents;
 
 namespace AIToolbox.DependencyInjection;
 

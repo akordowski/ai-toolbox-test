@@ -1,7 +1,6 @@
-using AIToolbox.Options.Agents.ChatCompletion;
 using AIToolbox.Options.SemanticKernel;
 
-namespace AIToolbox.Options;
+namespace AIToolbox.Options.Agents;
 
 public sealed class ChatCompletionAgentOptions
 {
