@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class ConnectorServiceBuilderExtensions
 {
-    public static IConnectorsBuilder IncludeOllamaConnector(
-        this IConnectorsBuilder builder,
+    public static IConnectorServiceBuilder IncludeOllamaConnector(
+        this IConnectorServiceBuilder builder,
         OllamaConnectorOptions? options = null)
     {
         var opt = builder.Options;
@@ -31,8 +31,8 @@ public static class ConnectorServiceBuilderExtensions
         return builder;
     }
 
-    public static IConnectorsBuilder IncludeOllamaConnector(
-        this IConnectorsBuilder builder,
+    public static IConnectorServiceBuilder IncludeOllamaConnector(
+        this IConnectorServiceBuilder builder,
         Action<OllamaConnectorOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

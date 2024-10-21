@@ -4,6 +4,6 @@ namespace AIToolbox.DependencyInjection;
 
 public interface IAddAgents
 {
-    IAgentsBuilder AddAgents(AgentOptions? options = null);
-    IAgentsBuilder AddAgents(Action<AgentOptions> optionsAction);
+    IAgentServiceBuilder AddAgents(AgentOptions? options = null);
+    IAgentServiceBuilder AddAgents(Action<AgentOptions> optionsAction);
 }

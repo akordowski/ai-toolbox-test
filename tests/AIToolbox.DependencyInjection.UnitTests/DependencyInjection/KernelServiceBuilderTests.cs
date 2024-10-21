@@ -8,16 +8,16 @@ using Moq;
 
 namespace AIToolbox.DependencyInjection;
 
-public class KernelBuilderTests
+public class KernelServiceBuilderTests
 {
     private readonly KernelOptions _options = new();
     private readonly ServiceCollection _services = [];
-    private readonly Mock<IBuilderService> _builderServiceMock = new();
-    private readonly KernelBuilder _builder;
+    private readonly Mock<IServiceBuilderService> _builderServiceMock = new();
+    private readonly KernelServiceBuilder _builder;
 
-    public KernelBuilderTests()
+    public KernelServiceBuilderTests()
     {
-        _builder = new KernelBuilder(_options, _services, _builderServiceMock.Object);
+        _builder = new KernelServiceBuilder(_options, _services, _builderServiceMock.Object);
     }
 
     [Fact]
@@ -27,7 +27,7 @@ public class KernelBuilderTests
         var services = new ServiceCollection();
 
         // Act
-        var builder = new KernelBuilder(_options, services, _builderServiceMock.Object);
+        var builder = new KernelServiceBuilder(_options, services, _builderServiceMock.Object);
 
         // Assert
         builder.Options.Should().Be(_options);
@@ -44,7 +44,7 @@ public class KernelBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Options()
     {
         // Act
-        var act = () => new KernelBuilder(null!, _services, _builderServiceMock.Object);
+        var act = () => new KernelServiceBuilder(null!, _services, _builderServiceMock.Object);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("No 'KernelOptions' provided. *options*");
@@ -54,7 +54,7 @@ public class KernelBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Services()
     {
         // Act
-        var act = () => new KernelBuilder(_options, null!, _builderServiceMock.Object);
+        var act = () => new KernelServiceBuilder(_options, null!, _builderServiceMock.Object);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("*services*");
@@ -64,7 +64,7 @@ public class KernelBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_BuilderService()
     {
         // Act
-        var act = () => new KernelBuilder(_options, _services, null!);
+        var act = () => new KernelServiceBuilder(_options, _services, null!);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("*builderService*");
@@ -77,7 +77,7 @@ public class KernelBuilderTests
         var options = new AgentOptions();
         _builderServiceMock
             .Setup(o => o.AddAgents(options))
-            .Returns(Mock.Of<IAgentsBuilder>());
+            .Returns(Mock.Of<IAgentServiceBuilder>());
 
         // Act
         var result = _builder.AddAgents(options);
@@ -94,7 +94,7 @@ public class KernelBuilderTests
         Action<AgentOptions> optionsAction = _ => { };
         _builderServiceMock
             .Setup(o => o.AddAgents(optionsAction))
-            .Returns(Mock.Of<IAgentsBuilder>());
+            .Returns(Mock.Of<IAgentServiceBuilder>());
 
         // Act
         var result = _builder.AddAgents(optionsAction);
@@ -111,7 +111,7 @@ public class KernelBuilderTests
         var options = new MemoryOptions();
         _builderServiceMock
             .Setup(o => o.AddMemory(options))
-            .Returns(Mock.Of<IMemoryBuilder>());
+            .Returns(Mock.Of<IMemoryServiceBuilder>());
 
         // Act
         var result = _builder.AddMemory(options);
@@ -128,7 +128,7 @@ public class KernelBuilderTests
         Action<MemoryOptions> optionsAction = _ => { };
         _builderServiceMock
             .Setup(o => o.AddMemory(optionsAction))
-            .Returns(Mock.Of<IMemoryBuilder>());
+            .Returns(Mock.Of<IMemoryServiceBuilder>());
 
         // Act
         var result = _builder.AddMemory(optionsAction);

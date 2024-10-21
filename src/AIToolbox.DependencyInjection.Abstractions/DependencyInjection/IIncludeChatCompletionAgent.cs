@@ -4,6 +4,6 @@ namespace AIToolbox.DependencyInjection;
 
 public interface IIncludeChatCompletionAgent
 {
-    IChatCompletionAgentBuilder IncludeChatCompletionAgent(ChatCompletionAgentOptions? options = null);
-    IChatCompletionAgentBuilder IncludeChatCompletionAgent(Action<ChatCompletionAgentOptions> optionsAction);
+    IChatCompletionAgentServiceBuilder IncludeChatCompletionAgent(ChatCompletionAgentOptions? options = null);
+    IChatCompletionAgentServiceBuilder IncludeChatCompletionAgent(Action<ChatCompletionAgentOptions> optionsAction);
 }

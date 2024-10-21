@@ -8,11 +8,11 @@ public abstract class BaseMemoryStoreExtensionsTests
 {
     protected MemoryOptions Options { get; } = new();
     protected ServiceCollection Services { get; } = [];
-    protected Mock<IBuilderService> BuilderServiceMock { get; } = new();
-    protected IMemoryBuilder Builder { get; }
+    protected Mock<IServiceBuilderService> BuilderServiceMock { get; } = new();
+    protected IMemoryServiceBuilder Builder { get; }
 
     protected BaseMemoryStoreExtensionsTests()
     {
-        Builder = new MemoryBuilder(Options, Services, BuilderServiceMock.Object);
+        Builder = new MemoryServiceBuilder(Options, Services, BuilderServiceMock.Object);
     }
 }

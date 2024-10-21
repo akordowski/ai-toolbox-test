@@ -4,6 +4,6 @@ namespace AIToolbox.DependencyInjection;
 
 public interface IAddMemory
 {
-    IMemoryBuilder AddMemory(MemoryOptions? options = null);
-    IMemoryBuilder AddMemory(Action<MemoryOptions> optionsAction);
+    IMemoryServiceBuilder AddMemory(MemoryOptions? options = null);
+    IMemoryServiceBuilder AddMemory(Action<MemoryOptions> optionsAction);
 }

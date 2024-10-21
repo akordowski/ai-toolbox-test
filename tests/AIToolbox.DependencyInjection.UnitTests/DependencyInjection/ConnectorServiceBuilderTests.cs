@@ -6,24 +6,24 @@ using Moq;
 
 namespace AIToolbox.DependencyInjection;
 
-public class ConnectorsBuilderTests
+public class ConnectorServiceBuilderTests
 {
     private readonly ConnectorOptions _options = new();
     private readonly ServiceCollection _services = [];
-    private readonly Mock<IBuilderService> _builderServiceMock = new();
-    private readonly IKernelBuilder _kernelBuilder = Mock.Of<IKernelBuilder>();
-    private readonly ConnectorsBuilder _builder;
+    private readonly Mock<IServiceBuilderService> _builderServiceMock = new();
+    private readonly IKernelServiceBuilder _kernelBuilder = Mock.Of<IKernelServiceBuilder>();
+    private readonly ConnectorServiceBuilder _builder;
 
-    public ConnectorsBuilderTests()
+    public ConnectorServiceBuilderTests()
     {
-        _builder = new ConnectorsBuilder(_options, _services, _builderServiceMock.Object);
+        _builder = new ConnectorServiceBuilder(_options, _services, _builderServiceMock.Object);
     }
 
     [Fact]
     public void Should_Construct_With_Valid_Parameters()
     {
         // Act
-        var builder = new ConnectorsBuilder(_options, _services, _builderServiceMock.Object);
+        var builder = new ConnectorServiceBuilder(_options, _services, _builderServiceMock.Object);
 
         // Assert
         builder.Options.Should().Be(_options);
@@ -34,7 +34,7 @@ public class ConnectorsBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Options()
     {
         // Act
-        var act = () => new ConnectorsBuilder(null!, _services, _builderServiceMock.Object);
+        var act = () => new ConnectorServiceBuilder(null!, _services, _builderServiceMock.Object);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("*options*");
@@ -44,7 +44,7 @@ public class ConnectorsBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Services()
     {
         // Act
-        var act = () => new ConnectorsBuilder(_options, null!, _builderServiceMock.Object);
+        var act = () => new ConnectorServiceBuilder(_options, null!, _builderServiceMock.Object);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("*services*");
@@ -54,7 +54,7 @@ public class ConnectorsBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_BuilderService()
     {
         // Act
-        var act = () => new ConnectorsBuilder(_options, _services, null!);
+        var act = () => new ConnectorServiceBuilder(_options, _services, null!);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("*builderService*");

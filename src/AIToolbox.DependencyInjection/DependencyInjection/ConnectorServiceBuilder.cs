@@ -4,17 +4,17 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AIToolbox.DependencyInjection;
 
-internal sealed class ConnectorsBuilder : IConnectorsBuilder
+internal sealed class ConnectorServiceBuilder : IConnectorServiceBuilder
 {
     public ConnectorOptions Options { get; }
     public IServiceCollection Services { get; }
 
-    private readonly IBuilderService _builderService;
+    private readonly IServiceBuilderService _builderService;
 
-    public ConnectorsBuilder(
+    public ConnectorServiceBuilder(
         ConnectorOptions options,
         IServiceCollection services,
-        IBuilderService builderService)
+        IServiceBuilderService builderService)
     {
         Verify.ThrowIfNull(options, nameof(options));
         Verify.ThrowIfNull(services, nameof(services));
@@ -26,9 +26,9 @@ internal sealed class ConnectorsBuilder : IConnectorsBuilder
         _builderService = builderService;
     }
 
-    public IKernelBuilder AddKernel(KernelOptions? options = null) =>
+    public IKernelServiceBuilder AddKernel(KernelOptions? options = null) =>
         _builderService.AddKernel(options);
 
-    public IKernelBuilder AddKernel(Action<KernelOptions> optionsAction) =>
+    public IKernelServiceBuilder AddKernel(Action<KernelOptions> optionsAction) =>
         _builderService.AddKernel(optionsAction);
 }

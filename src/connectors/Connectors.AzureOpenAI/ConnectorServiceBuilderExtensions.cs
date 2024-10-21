@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class ConnectorServiceBuilderExtensions
 {
-    public static IConnectorsBuilder IncludeAzureOpenAIConnector(
-        this IConnectorsBuilder builder,
+    public static IConnectorServiceBuilder IncludeAzureOpenAIConnector(
+        this IConnectorServiceBuilder builder,
         AzureOpenAIConnectorOptions? options = null)
     {
         var opt = builder.Options;
@@ -31,8 +31,8 @@ public static class ConnectorServiceBuilderExtensions
         return builder;
     }
 
-    public static IConnectorsBuilder IncludeAzureOpenAIConnector(
-        this IConnectorsBuilder builder,
+    public static IConnectorServiceBuilder IncludeAzureOpenAIConnector(
+        this IConnectorServiceBuilder builder,
         Action<AzureOpenAIConnectorOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

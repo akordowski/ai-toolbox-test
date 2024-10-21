@@ -8,11 +8,11 @@ public abstract class BaseConnectorServiceBuilderExtensionsTests
 {
     protected ConnectorOptions Options { get; } = new();
     protected ServiceCollection Services { get; } = [];
-    protected Mock<IBuilderService> BuilderServiceMock { get; } = new();
-    protected IConnectorsBuilder Builder { get; }
+    protected Mock<IServiceBuilderService> BuilderServiceMock { get; } = new();
+    protected IConnectorServiceBuilder Builder { get; }
 
     protected BaseConnectorServiceBuilderExtensionsTests()
     {
-        Builder = new ConnectorsBuilder(Options, Services, BuilderServiceMock.Object);
+        Builder = new ConnectorServiceBuilder(Options, Services, BuilderServiceMock.Object);
     }
 }

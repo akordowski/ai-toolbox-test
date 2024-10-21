@@ -6,12 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AIToolbox.DependencyInjection;
 
-internal sealed class BuilderService : IBuilderService
+internal sealed class ServiceBuilderService : IServiceBuilderService
 {
     private readonly AIToolboxOptions _options;
     private readonly IServiceCollection _services;
 
-    public BuilderService(
+    public ServiceBuilderService(
         AIToolboxOptions options,
         IServiceCollection services)
     {
@@ -22,7 +22,7 @@ internal sealed class BuilderService : IBuilderService
         _services = services;
     }
 
-    public IConnectorsBuilder AddConnectors(ConnectorOptions? options = null)
+    public IConnectorServiceBuilder AddConnectors(ConnectorOptions? options = null)
     {
         _options.Connectors ??= new ConnectorOptions();
 
@@ -31,10 +31,10 @@ internal sealed class BuilderService : IBuilderService
             _options.Connectors = options;
         }
 
-        return new ConnectorsBuilder(_options.Connectors!, _services, this);
+        return new ConnectorServiceBuilder(_options.Connectors!, _services, this);
     }
 
-    public IConnectorsBuilder AddConnectors(Action<ConnectorOptions> optionsAction)
+    public IConnectorServiceBuilder AddConnectors(Action<ConnectorOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));
 
@@ -44,17 +44,17 @@ internal sealed class BuilderService : IBuilderService
         return AddConnectors(_options.Connectors!);
     }
 
-    public IKernelBuilder AddKernel(KernelOptions? options = null)
+    public IKernelServiceBuilder AddKernel(KernelOptions? options = null)
     {
         if (options is not null)
         {
             _options.Kernel = options;
         }
 
-        return new KernelBuilder(_options.Kernel!, _services, this);
+        return new KernelServiceBuilder(_options.Kernel!, _services, this);
     }
 
-    public IKernelBuilder AddKernel(Action<KernelOptions> optionsAction)
+    public IKernelServiceBuilder AddKernel(Action<KernelOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));
 
@@ -64,17 +64,17 @@ internal sealed class BuilderService : IBuilderService
         return AddKernel(_options.Kernel!);
     }
 
-    public IMemoryBuilder AddMemory(MemoryOptions? options = null)
+    public IMemoryServiceBuilder AddMemory(MemoryOptions? options = null)
     {
         if (options is not null)
         {
             _options.Memory = options;
         }
 
-        return new MemoryBuilder(_options.Memory!, _services, this);
+        return new MemoryServiceBuilder(_options.Memory!, _services, this);
     }
 
-    public IMemoryBuilder AddMemory(Action<MemoryOptions> optionsAction)
+    public IMemoryServiceBuilder AddMemory(Action<MemoryOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));
 
@@ -84,7 +84,7 @@ internal sealed class BuilderService : IBuilderService
         return AddMemory(_options.Memory!);
     }
 
-    public IAgentsBuilder AddAgents(AgentOptions? options = null)
+    public IAgentServiceBuilder AddAgents(AgentOptions? options = null)
     {
         _options.Agents ??= new AgentOptions();
 
@@ -93,10 +93,10 @@ internal sealed class BuilderService : IBuilderService
             _options.Agents = options;
         }
 
-        return new AgentsBuilder(_options.Agents!, _services);
+        return new AgentServiceBuilder(_options.Agents!, _services);
     }
 
-    public IAgentsBuilder AddAgents(Action<AgentOptions> optionsAction)
+    public IAgentServiceBuilder AddAgents(Action<AgentOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));
 

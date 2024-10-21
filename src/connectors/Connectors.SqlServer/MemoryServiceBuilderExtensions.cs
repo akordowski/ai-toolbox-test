@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeSqlServerMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeSqlServerMemoryStore(
+        this IMemoryServiceBuilder builder,
         SqlServerMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeSqlServerMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeSqlServerMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<SqlServerMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

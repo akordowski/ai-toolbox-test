@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeMongoDBMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeMongoDBMemoryStore(
+        this IMemoryServiceBuilder builder,
         MongoDBMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeMongoDBMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeMongoDBMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<MongoDBMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

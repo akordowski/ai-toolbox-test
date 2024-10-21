@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeDuckDBMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeDuckDBMemoryStore(
+        this IMemoryServiceBuilder builder,
         DuckDBMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeDuckDBMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeDuckDBMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<DuckDBMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

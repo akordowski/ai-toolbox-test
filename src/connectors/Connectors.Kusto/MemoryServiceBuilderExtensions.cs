@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeKustoMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeKustoMemoryStore(
+        this IMemoryServiceBuilder builder,
         KustoMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeKustoMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeKustoMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<KustoMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

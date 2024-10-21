@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeQdrantMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeQdrantMemoryStore(
+        this IMemoryServiceBuilder builder,
         QdrantMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeQdrantMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeQdrantMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<QdrantMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

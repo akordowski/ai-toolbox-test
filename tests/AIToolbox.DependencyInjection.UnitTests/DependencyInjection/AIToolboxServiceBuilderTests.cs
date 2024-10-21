@@ -4,21 +4,21 @@ using Moq;
 
 namespace AIToolbox.DependencyInjection;
 
-public class AIToolboxBuilderTests
+public class AIToolboxServiceBuilderTests
 {
-    private readonly Mock<IBuilderService> _builderServiceMock = new();
-    private readonly AIToolboxBuilder _builder;
+    private readonly Mock<IServiceBuilderService> _builderServiceMock = new();
+    private readonly AIToolboxServiceBuilder _builder;
 
-    public AIToolboxBuilderTests()
+    public AIToolboxServiceBuilderTests()
     {
-        _builder = new AIToolboxBuilder(_builderServiceMock.Object);
+        _builder = new AIToolboxServiceBuilder(_builderServiceMock.Object);
     }
 
     [Fact]
     public void Should_Construct_With_Valid_Parameters()
     {
         // Act
-        var act = () => new AIToolboxBuilder(_builderServiceMock.Object);
+        var act = () => new AIToolboxServiceBuilder(_builderServiceMock.Object);
 
         // Assert
         act.Should().NotThrow();
@@ -28,7 +28,7 @@ public class AIToolboxBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_BuilderService()
     {
         // Act
-        var act = () => new AIToolboxBuilder(null!);
+        var act = () => new AIToolboxServiceBuilder(null!);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithParameterName("builderService");
@@ -39,7 +39,7 @@ public class AIToolboxBuilderTests
     {
         // Arrange
         var options = new ConnectorOptions();
-        var connectorsBuilder = Mock.Of<IConnectorsBuilder>();
+        var connectorsBuilder = Mock.Of<IConnectorServiceBuilder>();
         _builderServiceMock
             .Setup(o => o.AddConnectors(options))
             .Returns(connectorsBuilder);
@@ -57,7 +57,7 @@ public class AIToolboxBuilderTests
     {
         // Arrange
         ConnectorOptions? options = null;
-        var connectorsBuilder = Mock.Of<IConnectorsBuilder>();
+        var connectorsBuilder = Mock.Of<IConnectorServiceBuilder>();
         _builderServiceMock
             .Setup(o => o.AddConnectors(options))
             .Returns(connectorsBuilder);
@@ -75,7 +75,7 @@ public class AIToolboxBuilderTests
     {
         // Arrange
         Action<ConnectorOptions> optionsAction = _ => { };
-        var connectorsBuilder = Mock.Of<IConnectorsBuilder>();
+        var connectorsBuilder = Mock.Of<IConnectorServiceBuilder>();
         _builderServiceMock
             .Setup(o => o.AddConnectors(optionsAction))
             .Returns(connectorsBuilder);

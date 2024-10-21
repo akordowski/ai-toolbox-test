@@ -4,6 +4,6 @@ namespace AIToolbox.DependencyInjection;
 
 public interface IAddConnectors
 {
-    IConnectorsBuilder AddConnectors(ConnectorOptions? options = null);
-    IConnectorsBuilder AddConnectors(Action<ConnectorOptions> optionsAction);
+    IConnectorServiceBuilder AddConnectors(ConnectorOptions? options = null);
+    IConnectorServiceBuilder AddConnectors(Action<ConnectorOptions> optionsAction);
 }

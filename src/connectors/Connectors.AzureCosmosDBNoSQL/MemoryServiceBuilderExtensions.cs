@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeAzureCosmosDBNoSQLMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeAzureCosmosDBNoSQLMemoryStore(
+        this IMemoryServiceBuilder builder,
         AzureCosmosDBNoSQLMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeAzureCosmosDBNoSQLMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeAzureCosmosDBNoSQLMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<AzureCosmosDBNoSQLMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

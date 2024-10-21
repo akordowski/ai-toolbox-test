@@ -12,12 +12,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AIToolbox.DependencyInjection;
 
-internal sealed class ChatCompletionAgentBuilder : IChatCompletionAgentBuilder
+internal sealed class ChatCompletionAgentServiceBuilder : IChatCompletionAgentServiceBuilder
 {
     public ChatCompletionAgentOptions Options { get; }
     public IServiceCollection Services { get; }
 
-    public ChatCompletionAgentBuilder(
+    public ChatCompletionAgentServiceBuilder(
         ChatCompletionAgentOptions options,
         IServiceCollection services)
     {
@@ -55,7 +55,7 @@ internal sealed class ChatCompletionAgentBuilder : IChatCompletionAgentBuilder
         }
     }
 
-    public IChatCompletionAgentBuilder WithSemanticTextMemoryRetriever()
+    public IChatCompletionAgentServiceBuilder WithSemanticTextMemoryRetriever()
     {
         var memoryProviderType = typeof(IMemoryProvider);
         var isRegistered = Services.Any(descriptor => descriptor.ServiceType == memoryProviderType);
@@ -63,7 +63,7 @@ internal sealed class ChatCompletionAgentBuilder : IChatCompletionAgentBuilder
         if (!isRegistered)
         {
             const string message = $"To use the '{nameof(SemanticTextMemoryRetriever)}' with the chat agent, " +
-                                   $"include the memory first using the '{nameof(IKernelBuilder.AddMemory)}()' method.";
+                                   $"include the memory first using the '{nameof(IKernelServiceBuilder.AddMemory)}()' method.";
 
             throw new InvalidOperationException(message);
         }
@@ -73,7 +73,7 @@ internal sealed class ChatCompletionAgentBuilder : IChatCompletionAgentBuilder
         return this;
     }
 
-    public IChatCompletionAgentBuilder WithSimpleDataStorage(SimpleDataStorageOptions? options = null)
+    public IChatCompletionAgentServiceBuilder WithSimpleDataStorage(SimpleDataStorageOptions? options = null)
     {
         if (options is not null)
         {
@@ -92,7 +92,7 @@ internal sealed class ChatCompletionAgentBuilder : IChatCompletionAgentBuilder
         return this;
     }
 
-    public IChatCompletionAgentBuilder WithSimpleDataStorage(Action<SimpleDataStorageOptions> optionsAction)
+    public IChatCompletionAgentServiceBuilder WithSimpleDataStorage(Action<SimpleDataStorageOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));
 

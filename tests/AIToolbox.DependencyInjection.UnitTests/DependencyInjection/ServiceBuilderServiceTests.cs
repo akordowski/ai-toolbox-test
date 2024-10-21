@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AIToolbox.DependencyInjection;
 
-public class BuilderServiceTests
+public class ServiceBuilderServiceTests
 {
     private readonly AIToolboxOptions _options = new()
     {
@@ -15,18 +15,18 @@ public class BuilderServiceTests
         Memory = new MemoryOptions(),
     };
     private readonly ServiceCollection _services = [];
-    private readonly BuilderService _builderService;
+    private readonly ServiceBuilderService _builderService;
 
-    public BuilderServiceTests()
+    public ServiceBuilderServiceTests()
     {
-        _builderService = new BuilderService(_options, _services);
+        _builderService = new ServiceBuilderService(_options, _services);
     }
 
     [Fact]
     public void Should_Construct_With_Valid_Parameters()
     {
         // Act
-        var act = () => new BuilderService(_options, new ServiceCollection());
+        var act = () => new ServiceBuilderService(_options, new ServiceCollection());
 
         // Assert
         act.Should().NotThrow();
@@ -36,7 +36,7 @@ public class BuilderServiceTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Options()
     {
         // Act
-        var act = () => new BuilderService(null!, _services);
+        var act = () => new ServiceBuilderService(null!, _services);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithParameterName("options");
@@ -46,7 +46,7 @@ public class BuilderServiceTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Services()
     {
         // Act
-        var act = () => new BuilderService(_options, null!);
+        var act = () => new ServiceBuilderService(_options, null!);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithParameterName("services");

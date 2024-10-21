@@ -15,7 +15,7 @@ using Moq;
 
 namespace AIToolbox.DependencyInjection;
 
-public class ChatCompletionAgentBuilderTests
+public class ChatCompletionAgentServiceBuilderTests
 {
     private readonly ChatCompletionAgentOptions _options = new()
     {
@@ -24,11 +24,11 @@ public class ChatCompletionAgentBuilderTests
         PromptExecution = new PromptExecutionOptions()
     };
     private readonly ServiceCollection _services = [];
-    private readonly ChatCompletionAgentBuilder _builder;
+    private readonly ChatCompletionAgentServiceBuilder _builder;
 
-    public ChatCompletionAgentBuilderTests()
+    public ChatCompletionAgentServiceBuilderTests()
     {
-        _builder = new ChatCompletionAgentBuilder(_options, _services);
+        _builder = new ChatCompletionAgentServiceBuilder(_options, _services);
     }
 
     [Fact]
@@ -41,7 +41,7 @@ public class ChatCompletionAgentBuilderTests
         var services = new ServiceCollection();
 
         // Act
-        var builder = new ChatCompletionAgentBuilder(_options, services);
+        var builder = new ChatCompletionAgentServiceBuilder(_options, services);
 
         // Assert
         builder.Options.Should().Be(_options);
@@ -82,7 +82,7 @@ public class ChatCompletionAgentBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Options()
     {
         // Act
-        var act = () => new ChatCompletionAgentBuilder(null!, _services);
+        var act = () => new ChatCompletionAgentServiceBuilder(null!, _services);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("*options*");
@@ -92,7 +92,7 @@ public class ChatCompletionAgentBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Services()
     {
         // Act
-        var act = () => new ChatCompletionAgentBuilder(_options, null!);
+        var act = () => new ChatCompletionAgentServiceBuilder(_options, null!);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("*services*");
@@ -104,7 +104,7 @@ public class ChatCompletionAgentBuilderTests
         // Arrange
         _options.ChatHistoryServiceType = ServiceType.Custom;
         var services = new ServiceCollection();
-        var builder = new ChatCompletionAgentBuilder(_options, services);
+        var builder = new ChatCompletionAgentServiceBuilder(_options, services);
 
         // Act
         // No additional action needed as services are added in the constructor
@@ -119,7 +119,7 @@ public class ChatCompletionAgentBuilderTests
         // Arrange
         _options.PromptExecutionSettingsServiceType = ServiceType.Custom;
         var services = new ServiceCollection();
-        var builder = new ChatCompletionAgentBuilder(_options, services);
+        var builder = new ChatCompletionAgentServiceBuilder(_options, services);
 
         // Act
         // No additional action needed as services are added in the constructor

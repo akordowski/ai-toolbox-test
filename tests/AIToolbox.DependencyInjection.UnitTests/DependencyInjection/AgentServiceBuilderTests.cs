@@ -4,15 +4,15 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AIToolbox.DependencyInjection;
 
-public class AgentsBuilderTests
+public class AgentServiceBuilderTests
 {
     private readonly AgentOptions _options = new();
     private readonly ServiceCollection _services = [];
-    private readonly AgentsBuilder _builder;
+    private readonly AgentServiceBuilder _builder;
 
-    public AgentsBuilderTests()
+    public AgentServiceBuilderTests()
     {
-        _builder = new AgentsBuilder(_options, _services);
+        _builder = new AgentServiceBuilder(_options, _services);
     }
 
     [Fact]
@@ -22,7 +22,7 @@ public class AgentsBuilderTests
         var services = new ServiceCollection();
 
         // Act
-        var builder = new AgentsBuilder(_options, services);
+        var builder = new AgentServiceBuilder(_options, services);
 
         // Assert
         builder.Options.Should().Be(_options);
@@ -36,7 +36,7 @@ public class AgentsBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Options()
     {
         // Act
-        var act = () => new AgentsBuilder(null!, _services);
+        var act = () => new AgentServiceBuilder(null!, _services);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("No 'AgentOptions' provided. *options*");
@@ -46,7 +46,7 @@ public class AgentsBuilderTests
     public void Should_Throw_Exception_When_Constructed_With_Null_Services()
     {
         // Act
-        var act = () => new AgentsBuilder(_options, null!);
+        var act = () => new AgentServiceBuilder(_options, null!);
 
         // Assert
         act.Should().Throw<ArgumentNullException>().WithMessage("*services*");

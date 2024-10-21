@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludePostgresMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludePostgresMemoryStore(
+        this IMemoryServiceBuilder builder,
         PostgresMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludePostgresMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludePostgresMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<PostgresMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

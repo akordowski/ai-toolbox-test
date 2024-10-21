@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeMilvusMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeMilvusMemoryStore(
+        this IMemoryServiceBuilder builder,
         MilvusMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeMilvusMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeMilvusMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<MilvusMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

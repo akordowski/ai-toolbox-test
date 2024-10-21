@@ -6,17 +6,17 @@ using Microsoft.SemanticKernel;
 
 namespace AIToolbox.DependencyInjection;
 
-internal sealed class KernelBuilder : IKernelBuilder
+internal sealed class KernelServiceBuilder : IKernelServiceBuilder
 {
     public KernelOptions Options { get; }
     public IServiceCollection Services { get; }
 
-    private readonly IBuilderService _builderService;
+    private readonly IServiceBuilderService _builderService;
 
-    public KernelBuilder(
+    public KernelServiceBuilder(
         KernelOptions options,
         IServiceCollection services,
-        IBuilderService builderService)
+        IServiceBuilderService builderService)
     {
         Verify.ThrowIfNull(options, nameof(options), $"No '{nameof(KernelOptions)}' provided.");
         Verify.ThrowIfNull(services, nameof(services));
@@ -32,37 +32,37 @@ internal sealed class KernelBuilder : IKernelBuilder
             .AddSingleton<IKernelProvider, KernelProvider>();
     }
 
-    public IAgentsBuilder AddAgents(AgentOptions? options = null) =>
+    public IAgentServiceBuilder AddAgents(AgentOptions? options = null) =>
         _builderService.AddAgents(options);
 
-    public IAgentsBuilder AddAgents(Action<AgentOptions> optionsAction) =>
+    public IAgentServiceBuilder AddAgents(Action<AgentOptions> optionsAction) =>
         _builderService.AddAgents(optionsAction);
 
-    public IMemoryBuilder AddMemory(MemoryOptions? options = null) =>
+    public IMemoryServiceBuilder AddMemory(MemoryOptions? options = null) =>
         _builderService.AddMemory(options);
 
-    public IMemoryBuilder AddMemory(Action<MemoryOptions> optionsAction) =>
+    public IMemoryServiceBuilder AddMemory(Action<MemoryOptions> optionsAction) =>
         _builderService.AddMemory(optionsAction);
 
-    public IKernelBuilder WithCustomAIServiceSelector(Func<IServiceProvider, IAIServiceSelector> factory)
+    public IKernelServiceBuilder WithCustomAIServiceSelector(Func<IServiceProvider, IAIServiceSelector> factory)
     {
         Services.AddSingleton<IKernelBuilderConfigurator>(new KernelBuilderConfigurator<IAIServiceSelector>(factory));
         return this;
     }
 
-    public IKernelBuilder WithCustomAIServiceSelector(IAIServiceSelector instance)
+    public IKernelServiceBuilder WithCustomAIServiceSelector(IAIServiceSelector instance)
     {
         Services.AddSingleton<IKernelBuilderConfigurator>(new KernelBuilderConfigurator<IAIServiceSelector>(instance));
         return this;
     }
 
-    public IKernelBuilder WithCustomFunctionInvocationFilter(Func<IServiceProvider, IFunctionInvocationFilter> factory)
+    public IKernelServiceBuilder WithCustomFunctionInvocationFilter(Func<IServiceProvider, IFunctionInvocationFilter> factory)
     {
         Services.AddSingleton<IKernelBuilderConfigurator>(new KernelBuilderConfigurator<IFunctionInvocationFilter>(factory));
         return this;
     }
 
-    public IKernelBuilder WithCustomFunctionInvocationFilter(IFunctionInvocationFilter instance)
+    public IKernelServiceBuilder WithCustomFunctionInvocationFilter(IFunctionInvocationFilter instance)
     {
         Services.AddSingleton<IKernelBuilderConfigurator>(new KernelBuilderConfigurator<IFunctionInvocationFilter>(instance));
         return this;

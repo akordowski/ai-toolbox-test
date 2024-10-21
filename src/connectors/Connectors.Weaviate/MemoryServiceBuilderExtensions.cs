@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeWeaviateMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeWeaviateMemoryStore(
+        this IMemoryServiceBuilder builder,
         WeaviateMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeWeaviateMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeWeaviateMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<WeaviateMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

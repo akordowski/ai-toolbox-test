@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class ConnectorServiceBuilderExtensions
 {
-    public static IConnectorsBuilder IncludeMistralAIConnector(
-        this IConnectorsBuilder builder,
+    public static IConnectorServiceBuilder IncludeMistralAIConnector(
+        this IConnectorServiceBuilder builder,
         MistralAIConnectorOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class ConnectorServiceBuilderExtensions
         return builder;
     }
 
-    public static IConnectorsBuilder IncludeMistralAIConnector(
-        this IConnectorsBuilder builder,
+    public static IConnectorServiceBuilder IncludeMistralAIConnector(
+        this IConnectorServiceBuilder builder,
         Action<MistralAIConnectorOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

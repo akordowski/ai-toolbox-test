@@ -6,18 +6,18 @@ namespace AIToolbox.DependencyInjection;
 
 public static class ServiceCollectionExtensions
 {
-    public static IAIToolboxBuilder AddAIToolbox(this IServiceCollection services) =>
+    public static IAIToolboxServiceBuilder AddAIToolbox(this IServiceCollection services) =>
         services.AddAIToolbox(new AIToolboxOptions());
 
-    public static IAIToolboxBuilder AddAIToolbox(
+    public static IAIToolboxServiceBuilder AddAIToolbox(
         this IServiceCollection services,
         AIToolboxOptions options)
     {
         ArgumentNullException.ThrowIfNull(options, nameof(options));
-        return new AIToolboxBuilder(new BuilderService(options, services));
+        return new AIToolboxServiceBuilder(new ServiceBuilderService(options, services));
     }
 
-    public static IAIToolboxBuilder AddAIToolbox(
+    public static IAIToolboxServiceBuilder AddAIToolbox(
         this IServiceCollection services,
         Action<AIToolboxOptions> optionsAction)
     {
@@ -29,7 +29,7 @@ public static class ServiceCollectionExtensions
         return services.AddAIToolbox(options);
     }
 
-    public static IAIToolboxBuilder AddAIToolbox(
+    public static IAIToolboxServiceBuilder AddAIToolbox(
         this IServiceCollection services,
         IConfiguration configuration,
         string sectionName = "AIToolbox") =>

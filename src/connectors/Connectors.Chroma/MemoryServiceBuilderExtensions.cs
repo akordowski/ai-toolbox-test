@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludeChromaMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeChromaMemoryStore(
+        this IMemoryServiceBuilder builder,
         ChromaMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludeChromaMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludeChromaMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<ChromaMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class MemoryServiceBuilderExtensions
 {
-    public static IMemoryBuilder IncludePineconeMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludePineconeMemoryStore(
+        this IMemoryServiceBuilder builder,
         PineconeMemoryStoreOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class MemoryServiceBuilderExtensions
         return builder;
     }
 
-    public static IMemoryBuilder IncludePineconeMemoryStore(
-        this IMemoryBuilder builder,
+    public static IMemoryServiceBuilder IncludePineconeMemoryStore(
+        this IMemoryServiceBuilder builder,
         Action<PineconeMemoryStoreOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

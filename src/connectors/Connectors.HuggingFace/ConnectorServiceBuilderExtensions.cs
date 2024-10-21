@@ -7,8 +7,8 @@ namespace AIToolbox.DependencyInjection;
 
 public static class ConnectorServiceBuilderExtensions
 {
-    public static IConnectorsBuilder IncludeHuggingFaceConnector(
-        this IConnectorsBuilder builder,
+    public static IConnectorServiceBuilder IncludeHuggingFaceConnector(
+        this IConnectorServiceBuilder builder,
         HuggingFaceConnectorOptions? options = null)
     {
         var opt = builder.Options;
@@ -29,8 +29,8 @@ public static class ConnectorServiceBuilderExtensions
         return builder;
     }
 
-    public static IConnectorsBuilder IncludeHuggingFaceConnector(
-        this IConnectorsBuilder builder,
+    public static IConnectorServiceBuilder IncludeHuggingFaceConnector(
+        this IConnectorServiceBuilder builder,
         Action<HuggingFaceConnectorOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));

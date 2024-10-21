@@ -1,16 +1,15 @@
 using AIToolbox.Options.Agents;
 using Microsoft.Extensions.DependencyInjection;
 
+// ReSharper disable InvertIf
 namespace AIToolbox.DependencyInjection;
 
-// ReSharper disable InvertIf
-
-internal sealed class AgentsBuilder : IAgentsBuilder
+internal sealed class AgentServiceBuilder : IAgentServiceBuilder
 {
     public AgentOptions Options { get; }
     public IServiceCollection Services { get; }
 
-    public AgentsBuilder(
+    public AgentServiceBuilder(
         AgentOptions options,
         IServiceCollection services)
     {
@@ -23,7 +22,7 @@ internal sealed class AgentsBuilder : IAgentsBuilder
         Services.AddSingleton(Options);
     }
 
-    public IChatCompletionAgentBuilder IncludeChatCompletionAgent(ChatCompletionAgentOptions? options = null)
+    public IChatCompletionAgentServiceBuilder IncludeChatCompletionAgent(ChatCompletionAgentOptions? options = null)
     {
         Options.ChatCompletion ??= new ChatCompletionAgentOptions();
 
@@ -32,10 +31,10 @@ internal sealed class AgentsBuilder : IAgentsBuilder
             Options.ChatCompletion = options;
         }
 
-        return new ChatCompletionAgentBuilder(Options.ChatCompletion!, Services);
+        return new ChatCompletionAgentServiceBuilder(Options.ChatCompletion!, Services);
     }
 
-    public IChatCompletionAgentBuilder IncludeChatCompletionAgent(Action<ChatCompletionAgentOptions> optionsAction)
+    public IChatCompletionAgentServiceBuilder IncludeChatCompletionAgent(Action<ChatCompletionAgentOptions> optionsAction)
     {
         Verify.ThrowIfNull(optionsAction, nameof(optionsAction));
 

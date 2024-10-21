@@ -6,7 +6,6 @@ namespace AIToolbox.SemanticKernel.Memory;
 
 public class SimpleMemoryStoreFactory : IMemoryStoreFactory
 {
-
     public IMemoryStore GetMemoryStore(
         MemoryStoreOptions options,
         ILoggerFactory? loggerFactory = null,

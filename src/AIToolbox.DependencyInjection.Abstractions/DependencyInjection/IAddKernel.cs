@@ -4,6 +4,6 @@ namespace AIToolbox.DependencyInjection;
 
 public interface IAddKernel
 {
-    IKernelBuilder AddKernel(KernelOptions? options = null);
-    IKernelBuilder AddKernel(Action<KernelOptions> optionsAction);
+    IKernelServiceBuilder AddKernel(KernelOptions? options = null);
+    IKernelServiceBuilder AddKernel(Action<KernelOptions> optionsAction);
 }
