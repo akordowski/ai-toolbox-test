@@ -27,7 +27,7 @@ AI Toolbox is a .NET SDK that provides an extensible toolset for .NET developers
 
 - [Getting started](https://akordowski.github.io/ai-toolbox/docs/getting-started.html)
 - [Reference](https://akordowski.github.io/ai-toolbox/reference/configuration.html)
-- [API reference](https://akordowski.github.io/ai-toolbox/api)
+- [API reference](https://akordowski.github.io/ai-toolbox/api/AIToolbox.html)
 
 ## Example
 
